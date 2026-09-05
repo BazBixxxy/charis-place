@@ -148,14 +148,14 @@ const GATHERING_NODES = [
 
 export default function AboutPage() {
   return (
-    <div className="charis-theme relative">
+    <div className="charis-theme relative min-h-screen bg-background text-foreground transition-colors duration-300">
       <style>{`
         @import url("${FONT_IMPORT_URL}");
       `}</style>
 
       {/* Fine grain overlay for a paper like texture across the whole page */}
       <svg
-        className="pointer-events-none fixed inset-0 h-full w-full opacity-[0.035]"
+        className="pointer-events-none fixed inset-0 h-full w-full text-foreground opacity-[0.025] dark:opacity-[0.04]"
         aria-hidden="true"
       >
         <filter id="charis-grain">
@@ -166,7 +166,12 @@ export default function AboutPage() {
             stitchTiles="stitch"
           />
         </filter>
-        <rect width="100%" height="100%" filter="url(#charis-grain)" />
+        <rect
+          width="100%"
+          height="100%"
+          fill="currentColor"
+          filter="url(#charis-grain)"
+        />
       </svg>
 
       {/* ---------------------------------------------------------------- */}
@@ -174,16 +179,16 @@ export default function AboutPage() {
       {/* ---------------------------------------------------------------- */}
       <section className="relative overflow-hidden px-6 pb-28 pt-28 sm:pt-36 md:pb-36">
         <div
-          className="charis-drift pointer-events-none absolute -top-1/4 left-1/2 h-[52rem] w-[52rem] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
+          className="charis-drift pointer-events-none absolute -top-1/4 left-1/2 h-[52rem] w-[52rem] -translate-x-1/2 rounded-full opacity-40 dark:opacity-30 blur-3xl"
           style={{
             background:
-              "radial-gradient(circle, hsl(var(--primary) / 0.35), transparent 65%)",
+              "radial-gradient(circle, hsl(var(--primary) / 0.28), transparent 65%)",
           }}
           aria-hidden="true"
         />
 
         <p
-          className="font-serif-display pointer-events-none absolute left-1/2 top-[52%] w-[140%] -translate-x-1/2 -translate-y-1/2 select-none text-center text-[16vw] italic leading-none dark:text-foreground opacity-[0.035] sm:text-[11vw]"
+          className="font-serif-display pointer-events-none absolute left-1/2 top-[52%] w-[140%] -translate-x-1/2 -translate-y-1/2 select-none text-center text-[16vw] italic leading-none text-foreground opacity-[0.045] dark:opacity-[0.055] sm:text-[11vw]"
           aria-hidden="true"
         >
           pray without ceasing
@@ -339,7 +344,7 @@ export default function AboutPage() {
                           {item.title}
                         </h3>
                       </div>
-                      <p className="mt-2 text-sm text-muted-foreground">
+                      <p className="mt-2 text-sm font-medium text-primary">
                         {item.reference}
                       </p>
                       <blockquote className="font-serif-display mt-4 text-lg italic leading-relaxed text-foreground/90">
@@ -376,13 +381,13 @@ export default function AboutPage() {
       {/* ---------------------------------------------------------------- */}
       {/* Footer                                                            */}
       {/* ---------------------------------------------------------------- */}
-      <footer className="border-t border-border px-6 py-10">
+      <footer className="border-t border-border px-6 py-10 hidden">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-serif-display text-lg">Charis Place</p>
           <p className="mt-1 text-sm text-muted-foreground">
             Gathered since 2025
           </p>
-          <p className="mx-auto mt-6 max-w-md text-xs leading-relaxed text-muted-foreground/70">
+          <p className="mx-auto mt-6 max-w-md text-xs leading-relaxed text-muted-foreground">
             Scripture quotations taken from the New King James Version.
             Copyright 1982 by Thomas Nelson. Used by permission. All rights
             reserved.
