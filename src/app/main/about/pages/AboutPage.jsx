@@ -151,57 +151,6 @@ export default function AboutPage() {
     <div className="charis-theme relative">
       <style>{`
         @import url("${FONT_IMPORT_URL}");
-
-        .charis-theme {
-          --background: 224 33% 8%;
-          --foreground: 40 32% 93%;
-          --muted-foreground: 220 16% 63%;
-          --border: 222 20% 22%;
-          --card: 224 28% 11%;
-          --primary: 42 62% 55%;
-          --primary-foreground: 224 33% 8%;
-          font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-        }
-
-        .charis-theme .font-serif-display {
-          font-family: "Fraunces", ui-serif, Georgia, serif;
-        }
-
-        .charis-drift {
-          animation: charis-drift 22s ease-in-out infinite;
-        }
-
-        .charis-fade-up {
-          opacity: 0;
-          animation: charis-fade-up 0.9s ease-out forwards;
-        }
-
-        .charis-node {
-          animation: charis-node-pulse 4.5s ease-in-out infinite;
-        }
-
-        @keyframes charis-drift {
-          0%, 100% { transform: translate(-6%, -4%) scale(1); }
-          50% { transform: translate(4%, 5%) scale(1.08); }
-        }
-
-        @keyframes charis-fade-up {
-          from { opacity: 0; transform: translateY(14px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes charis-node-pulse {
-          0%, 100% { opacity: 0.45; }
-          50% { opacity: 1; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .charis-drift, .charis-fade-up, .charis-node {
-            animation: none !important;
-            opacity: 1 !important;
-            transform: none !important;
-          }
-        }
       `}</style>
 
       {/* Fine grain overlay for a paper like texture across the whole page */}
@@ -234,7 +183,7 @@ export default function AboutPage() {
         />
 
         <p
-          className="font-serif-display pointer-events-none absolute left-1/2 top-[52%] w-[140%] -translate-x-1/2 -translate-y-1/2 select-none text-center text-[16vw] italic leading-none text-foreground opacity-[0.035] sm:text-[11vw]"
+          className="font-serif-display pointer-events-none absolute left-1/2 top-[52%] w-[140%] -translate-x-1/2 -translate-y-1/2 select-none text-center text-[16vw] italic leading-none dark:text-foreground opacity-[0.035] sm:text-[11vw]"
           aria-hidden="true"
         >
           pray without ceasing
