@@ -43,6 +43,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { useAuthContext } from "./context/auth-context";
 import { Navigate } from "react-router-dom";
 import { articleLoader } from "./services/loaders";
+import AboutPage from "./app/main/about/pages/AboutPage";
 
 const App = () => {
   const { authUser } = useAuthContext();
@@ -90,6 +91,7 @@ const App = () => {
         {/* main layout */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/articles" element={<ArticlesPage />} />
           <Route
             path="/articles/:id"
