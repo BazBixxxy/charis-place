@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background px-6 py-16 sm:py-40">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background px-6 py-28 sm:py-40">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -52,11 +52,15 @@ export default function Hero() {
         </div>
 
         {/* Scripture */}
-        <div className="mx-auto max-w-3xl space-y-6 px-2">
-          <blockquote className="text-base font-light italic leading-relaxed text-foreground sm:text-lg md:text-xl lg:text-2xl">
+        <div className="mx-auto max-w-3xl space-y-5 px-2">
+          {/* <blockquote className="text-base font-light italic leading-relaxed text-foreground sm:text-lg md:text-xl lg:text-2xl">
             "This is how we know what love is: Jesus Christ laid down his life
             for us. And we ought to lay down our lives for our brothers and
             sisters."
+          </blockquote> */}
+          <blockquote className="text-base font-light italic leading-relaxed text-foreground sm:text-lg md:text-xl lg:text-2xl">
+            "In this we perceive the love of God, because He laid down His life
+            for us: we also ought to lay down our lives for the brethren."
           </blockquote>
 
           <cite className="block text-xs font-medium uppercase tracking-widest text-muted-foreground sm:text-sm">
