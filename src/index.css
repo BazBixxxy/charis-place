@@ -172,3 +172,65 @@
     animation: none !important;
   }
 }
+
+.charis-hero .hero-glow-primary {
+  animation: hero-drift-1 24s ease-in-out infinite;
+}
+.charis-hero .hero-glow-secondary {
+  animation: hero-drift-2 30s ease-in-out infinite;
+}
+.charis-hero .hero-particle {
+  animation: hero-particle-float 10s ease-in-out infinite;
+}
+.charis-hero .hero-ring {
+  animation: hero-ring-spin 60s linear infinite;
+}
+
+@keyframes hero-drift-1 {
+  0%,
+  100% {
+    transform: translate(-6%, -4%) scale(1);
+  }
+  50% {
+    transform: translate(4%, 6%) scale(1.12);
+  }
+}
+@keyframes hero-drift-2 {
+  0%,
+  100% {
+    transform: translate(5%, 4%) scale(1);
+  }
+  50% {
+    transform: translate(-6%, -5%) scale(1.1);
+  }
+}
+@keyframes hero-particle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-14px);
+    opacity: 0.9;
+  }
+}
+@keyframes hero-ring-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .charis-hero .hero-glow-primary,
+  .charis-hero .hero-glow-secondary,
+  .charis-hero .hero-particle,
+  .charis-hero .hero-ring {
+    animation: none !important;
+    transform: none !important;
+    opacity: 0.6 !important;
+  }
+}
