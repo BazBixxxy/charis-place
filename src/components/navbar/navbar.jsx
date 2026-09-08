@@ -44,8 +44,10 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "shadow-sm border-b fixed right-0 left-0 top-0 z-50 transition-colors duration-300",
-        isScrolled ? "bg-background" : "bg-transparent"
+        "fixed right-0 left-0 top-0 z-50 transition-all duration-300",
+        isScrolled
+          ? "border-b bg-background/60 shadow-sm backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
       )}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,7 +110,7 @@ export default function Navbar() {
         {/* Mobile Navigation Menu */}
         <div
           className={cn(
-            "xl:hidden transition-all duration-300 ease-in-out overflow-hidden bg-background",
+            "xl:hidden transition-all duration-300 ease-in-out overflow-hidden bg-background/80 backdrop-blur-xl",
             isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           )}
         >
