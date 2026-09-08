@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
@@ -13,12 +13,23 @@ import ProfileComponent from "../profile/profile-component";
 export default function Navbar() {
   const { authUser } = useAuthContext();
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const data = [
     { label: "Home", href: "/" },
     { label: "Articles", href: "/articles" },
     // { label: "Resources", href: "/resources" },
-    // { label: "Conversations", href: "/conversations" },
+    { label: "Conversations", href: "/conversations" },
     // { label: "Shop", href: "/shop" },
     { label: "About Us", href: "/about" },
     ...(authUser?.isAdmin
@@ -31,7 +42,14 @@ export default function Navbar() {
   };
 
   return (
-    <header className="shadow-sm border-b fixed right-0 left-0 top-0 z-50 bg-background">
+    <header
+      className={cn(
+        "fixed right-0 left-0 top-0 z-50 transition-all duration-300",
+        isScrolled
+          ? "border-b bg-background/60 shadow-sm backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
+      )}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -92,7 +110,7 @@ export default function Navbar() {
         {/* Mobile Navigation Menu */}
         <div
           className={cn(
-            "xl:hidden transition-all duration-300 ease-in-out overflow-hidden bg-background",
+            "xl:hidden transition-all duration-300 ease-in-out overflow-hidden bg-background/80 backdrop-blur-xl",
             isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           )}
         >

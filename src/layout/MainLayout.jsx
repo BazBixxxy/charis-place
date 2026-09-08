@@ -4,12 +4,16 @@ import { Suspense } from "react";
 import ScrollToTop from "@/components/scroll-top";
 import Footer from "@/components/footer";
 import LoadingSpinner from "@/components/loading-spinner";
+import { cn } from "@/lib/utils";
+import { useLocation } from "react-router-dom";
 
 const MainLayout = () => {
+  const { pathname } = useLocation();
+
   return (
     <>
       <Navbar />
-      <div className="my-16 min-h-screen">
+      <div className={cn(pathname === "/" ? "mb-16" : "my-16", "min-h-screen")}>
         <Suspense fallback={<LoadingSpinner />}>
           <ScrollToTop />
           <Outlet />
