@@ -24,6 +24,12 @@ export default function Hero() {
         aria-hidden="true"
       />
 
+      {/* Fade into the next section */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-background"
+        aria-hidden="true"
+      />
+
       <div className="relative z-10 w-full max-w-6xl space-y-16 text-center">
         {/* Main heading */}
         <div className="space-y-8">
